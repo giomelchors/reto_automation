@@ -18,17 +18,17 @@ buildscript {
         maven {
             url "https://plugins.gradle.org/m2/"
         }
-        dependencies {
-            classpath "net.serenity-bdd:serenity-gradle-plugin:3.3.0"
-            classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929"
-        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.3.0"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929"
     }
 }
 apply plugin: "org.sonarqube"
 
 ext {
-    serenityVersion = '3.6.12'
-    serenityCucumberVersion = '3.6.12'
+    serenityVersion = '3.7.1'
+    serenityCucumberVersion = '3.7.1'
 }
 
 dependencies {
@@ -36,11 +36,13 @@ dependencies {
     implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
 
+
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'io.cucumber:cucumber-java:7.12.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.12.0'
+    testImplementation 'net.serenity-bdd:serenity-core:1.9.9'
+    testImplementation 'net.serenity-bdd:serenity-junit:1.9.9'
     testImplementation 'org.assertj:assertj-core:3.24.2'
     testImplementation 'org.slf4j:slf4j-simple:2.0.5'
 }
 
-test {
-    useJUnitPlatform()
-}
