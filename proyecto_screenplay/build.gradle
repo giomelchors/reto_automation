@@ -1,0 +1,46 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        dependencies {
+            classpath "net.serenity-bdd:serenity-gradle-plugin:3.3.0"
+            classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929"
+        }
+    }
+}
+apply plugin: "org.sonarqube"
+
+ext {
+    serenityVersion = '3.6.12'
+    serenityCucumberVersion = '3.6.12'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.5'
+}
+
+test {
+    useJUnitPlatform()
+}
