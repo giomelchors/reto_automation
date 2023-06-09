@@ -3,10 +3,9 @@ Feature: Verify the screen of the option pages
   require enter to the option error pages
   to view the screen displayed
 
-  Scenario Outline: verify the description of the error
+  Scenario: verify the description of the error
     Given that Geovanny enter to the page sahitest
-    When enter to the option <option>
-    And select the code <code>
-    Then the message of the page <message>
-    Examples:
-      | option | code | message |
+    When enter to the option Error Pages
+    And  select the code 500 page
+    Then the screen should display the message "HTTP ERROR 500"
+

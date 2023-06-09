@@ -22,9 +22,9 @@ public class LoginTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Open.browserOn(sahiTestLoginPage));
-        actor.attemptsTo(Enter.theValue(user).into(SahiTestLoginPage.LB_USUARIO),
-                Enter.theValue(password).into(SahiTestLoginPage.LB_CONTRASENIA),
-                Click.on(SahiTestLoginPage.BTN_INICIAR_SESION));
+        actor.attemptsTo(Enter.theValue(user).into(SahiTestLoginPage.LB_USER),
+                Enter.theValue(password).into(SahiTestLoginPage.LB_PASSWORD),
+                Click.on(SahiTestLoginPage.BTN_LOGIN));
 
     }
 

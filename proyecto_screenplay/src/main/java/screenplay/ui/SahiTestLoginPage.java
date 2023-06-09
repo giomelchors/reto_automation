@@ -8,8 +8,7 @@ import org.openqa.selenium.By;
 @DefaultUrl("http://sahitest.com/demo/training/login.htm")
 public class SahiTestLoginPage extends PageObject {
 
-    public static final Target LB_USUARIO = Target.the("Usuario").located(By.name("user"));
-    public static final Target LB_CONTRASENIA = Target.the("Contrasenia").located(By.name("password"));
-    public static final Target BTN_INICIAR_SESION = Target.the("Boton iniciar sesión").located(By.className("button"));
-    public static final Target TITULO_PAGE = Target.the("titulo page").located(By.xpath("/html/body/center/div/b"));
+    public static final Target LB_USER = Target.the("User").located(By.name("user"));
+    public static final Target LB_PASSWORD= Target.the("Password").located(By.name("password"));
+    public static final Target BTN_LOGIN = Target.the("Login Button").located(By.className("button"));
 }
